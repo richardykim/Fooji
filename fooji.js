@@ -89,40 +89,37 @@ export default (request, response) => {
         if (messageText) {
             // If we receive a text message, check to see if it matches a keyword
             // and send back the example. Otherwise, just echo the text we received.
-            switch (messageText.codePointAt(0)) {
-                case 127839:
-                	getFoojiInfo("fast food", senderID);
-                  break;
-                case 127831:
-                  getFoojiInfo("Chicken Wings", senderID);
-                  break;
-                case 127829:
-                  getFoojiInfo("Pizza", senderID);
-                  break;
-                case 127843:
-                  getFoojiInfo("Sushi", senderID);
-                  break;
-                case 127828:
-                  getFoojiInfo("Burgers", senderID);
-                  break;
-                case 127814:
-                  getFoojiInfo("Vegetarian", senderID);
-                  break;
-                case 127858:
-                  getFoojiInfo("Ramen", senderID);
-                  break;
-                case 127837:
-                  getFoojiInfo("Pasta", senderID);
-                  break;
-                case 127846:
-                  getFoojiInfo("Dessert", senderID);
-                  break;
-                case 103:
-                    sendGenericMessage(senderID);
-                    break;
-                default:
-                    sendTextMessage(senderID, messageText.codePointAt(0));
-            }
+
+                	getFoojiInfo(messageText, senderID);
+                // case 127831:
+                //   getFoojiInfo("Chicken Wings", senderID);
+                //   break;
+                // case 127829:
+                //   getFoojiInfo("Pizza", senderID);
+                //   break;
+                // case 127843:
+                //   getFoojiInfo("Sushi", senderID);
+                //   break;
+                // case 127828:
+                //   getFoojiInfo("Burgers", senderID);
+                //   break;
+                // case 127814:
+                //   getFoojiInfo("Vegetarian", senderID);
+                //   break;
+                // case 127858:
+                //   getFoojiInfo("Ramen", senderID);
+                //   break;
+                // case 127837:
+                //   getFoojiInfo("Pasta", senderID);
+                //   break;
+                // case 127846:
+                //   getFoojiInfo("Dessert", senderID);
+                //   break;
+                // case 103:
+                //     sendGenericMessage(senderID);
+                //     break;
+                // default:
+                //     sendTextMessage(senderID, messageText.codePointAt(0));
         } else if (messageAttachments) {
             sendTextMessage(senderID, "Message with attachment received");
         }
@@ -193,12 +190,12 @@ export default (request, response) => {
           	nameFooji2 = json.businesses[1].name;
           	urlFooji2 = json.businesses[1].url;
           	imgFooji2 = json.businesses[1].image_url;
-          	numberFooji2 = json.businesses[1].phone;
+          	numberFooji2 = "432432";
 
           	nameFooji3 = json.businesses[2].name;
           	urlFooji3 = json.businesses[2].url;
           	imgFooji3 = json.businesses[2].image_url;
-          	numberFooji3 = json.businesses[2].phone;
+          	numberFooji3 = "432432";
 
 
           	sendInfoToFB(senderID);
@@ -243,7 +240,7 @@ export default (request, response) => {
                 image_url: imgFooji2,
                 buttons: [{
                   type: "web_url",
-                  url: urlFooji,
+                  url: urlFooji2,
                   title: "Open Web URL"
                 }, {
                   type: "phone_number",
@@ -257,7 +254,7 @@ export default (request, response) => {
                 image_url: imgFooji3,
                 buttons: [{
                   type: "web_url",
-                  url: urlFooji,
+                  url: urlFooji3,
                   title: "Open Web URL"
                 }, {
                   type: "phone_number",
